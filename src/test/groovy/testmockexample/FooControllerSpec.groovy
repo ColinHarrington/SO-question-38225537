@@ -34,6 +34,3 @@ class FooControllerSpec extends Specification {
     }
 }
 
-class PagedResultList {
-    boolean empty
-}
