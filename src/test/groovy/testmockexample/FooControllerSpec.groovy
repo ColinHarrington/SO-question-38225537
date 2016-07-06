@@ -1,5 +1,6 @@
 package testmockexample
 
+import grails.orm.PagedResultList
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 
@@ -9,7 +10,7 @@ class FooControllerSpec extends Specification {
     void "sample Test with map"() {
         given:
             controller.sampleService = Mock(SampleService)
-            def emptyPagedResultList = [empty: true]
+            PagedResultList emptyPagedResultList = [empty: true] as PagedResultList
 
         when:
             controller.testFunction()
@@ -29,7 +30,7 @@ class FooControllerSpec extends Specification {
 
         then:
             1 * controller.sampleService.doSomething() >> emptyPagedResultList
-            1 * emptyPagedResultList.empty >> true
+            1 * emptyPagedResultList.isEmpty() >> true
             response.text == "it´s empty"
     }
 }
