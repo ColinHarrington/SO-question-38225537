@@ -1,10 +1,11 @@
 package testmockexample
 
+import grails.orm.PagedResultList
 import grails.transaction.Transactional
 
 class SampleService {
 
-    def doSomething() {
+    PagedResultList doSomething() {
     	println "doSomething"
     }
 }
